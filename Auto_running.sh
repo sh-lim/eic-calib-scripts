@@ -94,13 +94,13 @@ progress_bar()
 function run()
 {
     chmod +x ./submit.sh
-    ./submit.sh $tower_number
+    ./submit.sh $start_tower
     echo -e "\n-----------------------------------------------"
     echo -e "\nThis process is intentionally delayed for 10 seconds\n"
     progress_bar 10
 
     chmod 755 manage_number.sh
-    nohup ./manage_number.sh $manage_start_tower
+    nohup ./manage_number.sh $start_tower
     echo -e "\n-----------------------------------------------"
     echo -e "\nManaging script runs in the background.\n"
 }

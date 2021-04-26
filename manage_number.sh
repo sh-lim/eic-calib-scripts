@@ -10,7 +10,7 @@ function count()
         echo "$tower_num tower is in the queue"
         sleep 10s
     else
-        sleep 1m
+        sleep 10m
     fi
 }
 
