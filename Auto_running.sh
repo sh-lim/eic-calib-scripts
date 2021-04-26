@@ -93,17 +93,14 @@ progress_bar()
 
 function run()
 {
-    manage_start_tower=$(($start_tower+$nb_of_batches))
-    for (( tower_number = $start_tower; tower_number < $manage_start_tower; tower_number++ )); do
-        chmod +x ./submit.sh
-        ./submit.sh $tower_number
-        echo -e "\n-----------------------------------------------"
-        echo -e "\nThis process is intentionally delayed for 10 seconds\n"
-        progress_bar 10
-    done
+    chmod +x ./submit.sh
+    ./submit.sh $tower_number
+    echo -e "\n-----------------------------------------------"
+    echo -e "\nThis process is intentionally delayed for 10 seconds\n"
+    progress_bar 10
 
     chmod 755 manage_number.sh
-    nohup ./manage_number.sh $manage_start_tower $nb_of_batches 2> /dev/null &
+    nohup ./manage_number.sh $manage_start_tower
     echo -e "\n-----------------------------------------------"
     echo -e "\nManaging script runs in the background.\n"
 }
@@ -111,10 +108,9 @@ function run()
 function set_numbers()
 {
     echo -e
-    read -p "Number of batch jobs you want to run simultaneously : " nb_of_batches
     read -p "Tower # you want to start with : " start_tower
 
-    echo -e "\nRun(s) $nb_of_batches batch job(s) at the same time, starting from tower $start_tower"
+    echo -e "\nRun batch jobs : starting from tower $start_tower"
     echo -e "\n-----------------------------------------------\n"
     echo "If the above description is correct, select Run, otherwise select Quit"
     PS3="Select: "
@@ -152,7 +148,7 @@ function set_env()
     echo -e "\n-----------------------------------------------"
     echo -e "\nSetting env. It takes few seconds."
 
-    source setenv-cc7-gcc8.sh
+    source ./setenv-cc7-gcc8.sh
 
     echo "Environment variables are successfully set."
     echo -e "\nNow you should type in the followings.\n"

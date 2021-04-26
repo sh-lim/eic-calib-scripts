@@ -32,7 +32,7 @@ function set_vars()
         INITIAL_DIR_ROW=`awk '/initialdir/{ print NR; exit }' calibration.sub`
         sed -i "${INITIAL_DIR_ROW}s/=.*/= $TOWER_NUM/" calibration.sub
         TRANSFER_INPUT_ROW=`awk '/transfer_input_files/{ print NR; exit }' calibration.sub`
-        sed -i "${TRANSFER_INPUT_ROW}s?=.*?= ${INSTALLED_DIR}/bin, ${INSTALLED_DIR}/lib, ${INSTALLED_DIR}/init.mac, ${INSTALLED_DIR}/run_calib.mac?" calibration.sub
+        sed -i "${TRANSFER_INPUT_ROW}s?=.*?= ${INSTALLED_DIR}/DRsim, ${INSTALLED_DIR}/init.mac, ${INSTALLED_DIR}/run_calib.mac?" calibration.sub
         EXECUTION_ROW=`awk '/d0/{ print NR; exit }' calibration.sh`
         sed -i "${EXECUTION_ROW}s?\/d0.*?\/${INSTALLED_DIR}\/DRsim run_calib.mac \$1 calibration_${TOWER_NUM}th?" calibration.sh
 
