@@ -100,7 +100,7 @@ function run()
     progress_bar 10
 
     chmod 755 manage_number.sh
-    nohup ./manage_number.sh $start_tower
+    nohup ./manage_number.sh $(( $start_tower + 1 )) 2> /dev/null &
     echo -e "\n-----------------------------------------------"
     echo -e "\nManaging script runs in the background.\n"
 }
