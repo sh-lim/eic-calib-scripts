@@ -1,0 +1,15 @@
+universe = vanilla
+executable = calibration.sh
+initialdir = 0
+arguments = $(ProcId)
+output =  log/$(ProcId).out
+error = log/$(ProcId).err
+log = log/$(ProcId).log
+request_memory = 4 GB
+request_cpus = 4
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files = {path}/bin, {path}/lib, {path}/init.mac, {path}/run_calib.mac
+
+queue 250
