@@ -21,6 +21,7 @@ So calibration.sh from
 
 to
     
+    ...
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HEPMC_DIR/lib64:$FASTJET_DIR/lib:$PYTHIA_DIR/lib:$PWD/lib
     /d0/scratch/{-build/DRsim directory path-}/DRsim run_calib.mac $1 calibration_0th
 
