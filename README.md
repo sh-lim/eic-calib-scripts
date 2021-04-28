@@ -29,7 +29,7 @@ to
 
     ps -aux | grep manage
     
-manage_number.sh runs background to submit successive simulatio.
+manage_number.sh runs at background to submit successive simulation.
 
     condor_q -nobatch | grep $USER | wc -l
    
