@@ -27,7 +27,7 @@ to
 
 ## NOTE
 
-    ps -aus | grep manage
+    ps -aux | grep manage
     
 manage_number.sh runs background to submit successive simulatio.
 
