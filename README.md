@@ -10,7 +10,7 @@ After fetching the repository, do
     chmod +x Auto_running.sh
     ./Auto_running.sh
     
-If usint install dir. then should add below line to calibration.sh at a line above last line.
+If use install dir. then should add below line to calibration.sh at a line above last line.
 
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HEPMC_DIR/lib64:$FASTJET_DIR/lib:$PYTHIA_DIR/lib:$PWD/lib
     
