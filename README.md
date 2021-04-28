@@ -5,10 +5,24 @@ Scripts for DR-EIC Calibration
 After fetching the repository, do
 
     cd eic-calib-scripts
-    cp * ../
-    cd ..
+    cp * /<path-to-/build/DRsim>
+    cd <path-to-/build/DRsim>
     chmod +x Auto_running.sh
     ./Auto_running.sh
+    
+If usint install dir. then should add below line to calibration.sh at a line above last line.
+
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HEPMC_DIR/lib64:$FASTJET_DIR/lib:$PYTHIA_DIR/lib:$PWD/lib
+    
+So calibration.sh from
+    
+    ...
+    /d0/scratch/{-build/DRsim directory path-}/DRsim run_calib.mac $1 calibration_0th
+
+to
+    
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HEPMC_DIR/lib64:$FASTJET_DIR/lib:$PYTHIA_DIR/lib:$PWD/lib
+    /d0/scratch/{-build/DRsim directory path-}/DRsim run_calib.mac $1 calibration_0th
 
 ## NOTE
 
